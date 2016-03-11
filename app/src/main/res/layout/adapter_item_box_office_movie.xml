@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="top"
+    android:padding="25dp" >
+
+    <!-- @drawable/large_movie_poster sourced from 
+         http://content8.flixster.com/movie/11/15/86/11158674_pro.jpg -->
+    <ImageView
+        android:id="@+id/ivPosterImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:maxHeight="93dp"
+        android:scaleType="fitXY"
+        android:adjustViewBounds="true"
+        android:contentDescription="poster image"
+        android:src="@drawable/small_movie_poster" />
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentTop="true"
+        android:layout_marginLeft="5dp"
+        android:layout_toRightOf="@+id/ivPosterImage"
+        android:text="The Dark Knight"
+        android:textSize="20sp" />
+
+    <TextView
+        android:id="@+id/tvCast"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignBottom="@+id/ivPosterImage"
+        android:layout_below="@+id/tvCriticsScore"
+        android:layout_alignLeft="@+id/tvCriticsScore"
+        android:lines="1"
+        android:gravity="bottom"
+        android:text="Christian Bale, Joseph-Gordon Levitt"
+        android:textSize="15sp" />
+
+    <TextView
+        android:id="@+id/tvCriticsScore"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignLeft="@+id/tvTitle"
+        android:layout_below="@+id/tvTitle"
+        android:text="93%"
+        android:textSize="15sp" />
+
+</RelativeLayout>

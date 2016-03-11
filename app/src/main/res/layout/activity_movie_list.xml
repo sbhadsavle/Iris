@@ -5,7 +5,8 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
-    tools:context="com.ee461l.iris.MovieListActivity">
+    tools:context="com.ee461l.iris.MovieListActivity"
+    tools:showIn="@layout/content_movie_list">
 
     <android.support.design.widget.AppBarLayout
         android:id="@+id/app_bar"
@@ -21,6 +22,7 @@
             android:fitsSystemWindows="true"
             app:contentScrim="?attr/colorPrimary"
             app:layout_scrollFlags="scroll|exitUntilCollapsed">
+
 
             <android.support.v7.widget.Toolbar
                 android:id="@+id/toolbar"
@@ -42,5 +44,6 @@
         android:src="@android:drawable/ic_dialog_email"
         app:layout_anchor="@id/app_bar"
         app:layout_anchorGravity="bottom|end" />
+
 
 </android.support.design.widget.CoordinatorLayout>

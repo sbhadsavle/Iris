@@ -1,0 +1,42 @@
+﻿Merge branch 'master' of https://github.com/sbhadsavle/Iris
+
+# Conflicts:
+#	app/build.gradle
+#	app/src/main/AndroidManifest.xml
+#
+# It looks like you may be committing a merge.
+# If this is not correct, please remove the file
+#	.git/MERGE_HEAD
+# and try again.
+
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+# On branch master
+# Your branch and 'origin/master' have diverged,
+# and have 2 and 4 different commits each, respectively.
+#   (use "git pull" to merge the remote branch into yours)
+#
+# All conflicts fixed but you are still merging.
+#
+# Changes to be committed:
+#	modified:   app/build.gradle
+#	new file:   app/libs/android-async-http-1.4.3.jar
+#	new file:   app/libs/android-support-v4.jar
+#	new file:   app/libs/picasso-2.1.1.jar
+#	modified:   app/src/main/AndroidManifest.xml
+#	new file:   app/src/main/java/com/ee461l/iris/AssetLoader.java
+#	new file:   app/src/main/java/com/ee461l/iris/BoxOfficeActivity.java
+#	new file:   app/src/main/java/com/ee461l/iris/BoxOfficeDetailActivity.java
+#	new file:   app/src/main/java/com/ee461l/iris/BoxOfficeMovie.java
+#	new file:   app/src/main/java/com/ee461l/iris/BoxOfficeMoviesAdapter.java
+#	new file:   app/src/main/java/com/ee461l/iris/RottenTomatoesClient.java
+#	new file:   app/src/main/res/drawable/large_movie_poster.png
+#	new file:   app/src/main/res/drawable/small_movie_poster.png
+#	new file:   app/src/main/res/layout/activity_box_office.xml
+#	new file:   app/src/main/res/layout/activity_box_office_detail.xml
+#	modified:   app/src/main/res/layout/activity_movie_list.xml
+#	new file:   app/src/main/res/layout/adapter_item_box_office_movie.xml
+#	modified:   app/src/main/res/layout/content_movie_list.xml
+#
+
