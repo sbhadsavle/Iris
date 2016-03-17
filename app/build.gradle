@@ -8,6 +8,12 @@ android {
             storeFile file('C:/Users/caiju/.android/debug.keystore')
             storePassword 'android'
         }
+        configSarang {
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+            storeFile file('C:/Users/saran/.android/debug.keystore')
+            storePassword 'android'
+        }
     }
     compileSdkVersion 23
     buildToolsVersion "23.0.2"
@@ -25,7 +31,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
-            signingConfig signingConfigs.config
+            signingConfig signingConfigs.configSarang
         }
     }
 }
