@@ -86,6 +86,7 @@ public class LoginActivity extends AppCompatActivity implements
             // If the user's cached credentials are valid, the OptionalPendingResult will be "done"
             // and the GoogleSignInResult will be available instantly.
             Log.d(TAG, "Got cached sign-in");
+            System.out.println("Here, res1 is: ");
             GoogleSignInResult result = opr.get();
             handleSignInResult(result);
         } else {
@@ -96,6 +97,7 @@ public class LoginActivity extends AppCompatActivity implements
             opr.setResultCallback(new ResultCallback<GoogleSignInResult>() {
                 @Override
                 public void onResult(GoogleSignInResult googleSignInResult) {
+                    System.out.println("Here, res2 is: " + googleSignInResult);
                     hideProgressDialog();
                     handleSignInResult(googleSignInResult);
                 }
@@ -111,6 +113,7 @@ public class LoginActivity extends AppCompatActivity implements
         // Result returned from launching the Intent from GoogleSignInApi.getSignInIntent(...);
         if (requestCode == RC_SIGN_IN) {
             GoogleSignInResult result = Auth.GoogleSignInApi.getSignInResultFromIntent(data);
+            System.out.println("Here, res3 is: " + result);
             handleSignInResult(result);
         }
     }

@@ -30,7 +30,7 @@
             android:gravity="center_horizontal"
             android:orientation="vertical">
 
-            <!-- TODO: Change so that this displays Logo
+            <!-- TODO: Change so that this displays Logo -->
             <ImageView
                 android:id="@+id/google_icon"
                 android:layout_width="48dp"
@@ -38,7 +38,7 @@
                 android:layout_marginBottom="10dp"
                 android:layout_marginTop="@dimen/g_top_margin"
                 android:contentDescription="@string/desc_google_icon"
-                android:src="@drawable/googleg_color" />-->
+                android:src="@drawable/large_movie_poster" />
 
             <TextView
                 android:id="@+id/title_text"
@@ -47,7 +47,7 @@
                 android:layout_marginBottom="10dp"
                 android:text="@string/title_text"
                 android:gravity="center"
-                android:textColor="@android:color/white"
+                android:textColor="@android:color/black"
                 android:textSize="36sp" />
 
             <TextView
@@ -55,7 +55,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/signed_out"
-                android:textColor="@android:color/white"
+                android:textColor="@android:color/black"
                 android:textSize="14sp" />
 
             <TextView
@@ -67,50 +67,49 @@
                 android:maxLines="5"
                 android:padding="10dp"
                 android:scrollbars="vertical"
-                android:textColor="@android:color/white"
+                android:textColor="@android:color/black"
                 android:textSize="14sp" />
+            <RelativeLayout
+                android:layout_width="fill_parent"
+                android:layout_height="fill_parent"
+                android:layout_weight="1">
 
+                <com.google.android.gms.common.SignInButton
+                    android:id="@+id/sign_in_button"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"/>
+                <!--android:visibility="visible"
+                tools:visibility="gone" -->
+
+
+                <LinearLayout
+                    android:id="@+id/sign_out_and_disconnect"
+                    android:layout_width="fill_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:orientation="horizontal"
+                    android:paddingLeft="16dp"
+                    android:paddingRight="16dp"
+                    android:visibility="gone"
+                    tools:visibility="visible">
+
+                    <Button
+                        android:id="@+id/sign_out_button"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/sign_out" />
+
+                    <Button
+                        android:id="@+id/disconnect_button"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="@string/disconnect"/>
+
+                </LinearLayout>
+            </RelativeLayout>
         </LinearLayout>
     </ScrollView>
-
-    <RelativeLayout
-        android:layout_width="fill_parent"
-        android:layout_height="0dp"
-        android:layout_weight="1">
-
-        <com.google.android.gms.common.SignInButton
-            android:id="@+id/sign_in_button"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:visibility="visible"
-            tools:visibility="gone" />
-
-        <LinearLayout
-            android:id="@+id/sign_out_and_disconnect"
-            android:layout_width="fill_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
-            android:orientation="horizontal"
-            android:paddingLeft="16dp"
-            android:paddingRight="16dp"
-            android:visibility="gone"
-            tools:visibility="visible">
-
-            <Button
-                android:id="@+id/sign_out_button"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/sign_out" />
-
-            <Button
-                android:id="@+id/disconnect_button"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:text="@string/disconnect"/>
-
-        </LinearLayout>
-    </RelativeLayout>
 </LinearLayout>

@@ -9,15 +9,15 @@
          http://content8.flixster.com/movie/11/15/86/11158674_pro.jpg -->
     <ImageView
         android:id="@+id/ivPosterImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="50dp"
+        android:layout_height="75dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:maxHeight="93dp"
         android:scaleType="fitXY"
         android:adjustViewBounds="true"
         android:contentDescription="poster image"
-        android:src="@drawable/small_movie_poster" />
+        android:src="@drawable/large_movie_poster" />
 
     <TextView
         android:id="@+id/tvTitle"
@@ -39,7 +39,8 @@
         android:lines="1"
         android:gravity="bottom"
         android:text="Christian Bale, Joseph-Gordon Levitt"
-        android:textSize="15sp" />
+        android:textSize="15sp"
+        android:visibility="invisible"/>
 
     <TextView
         android:id="@+id/tvCriticsScore"
