@@ -28,6 +28,7 @@ public class LoginActivity extends AppCompatActivity implements
 
     private static final String TAG = "SignInActivity";
     private static final int RC_SIGN_IN = 9001;
+    public final static String EXTRA_MESSAGE = "com.ee461l.iris.MESSAGE";
 
     private GoogleApiClient mGoogleApiClient;
     private TextView mStatusTextView;
@@ -127,6 +128,10 @@ public class LoginActivity extends AppCompatActivity implements
             GoogleSignInAccount acct = result.getSignInAccount();
             mStatusTextView.setText(getString(R.string.signed_in_fmt, acct.getDisplayName()));
             updateUI(true);
+            Intent intentToEnterApp = new Intent(this, BoxOfficeActivity.class);
+            String userName = mStatusTextView.getText().toString();
+            intentToEnterApp.putExtra(EXTRA_MESSAGE, userName);
+            startActivity(intentToEnterApp);
         } else {
             // Signed out, show unauthenticated UI.
             updateUI(true);

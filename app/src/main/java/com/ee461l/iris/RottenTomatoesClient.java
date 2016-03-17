@@ -17,7 +17,8 @@ public class RottenTomatoesClient {
 
     // http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?apikey=<key>
     public void getBoxOfficeMovies(JsonHttpResponseHandler handler) {
-        String url = getApiUrl("lists/movies/box_office.json");
+        //String url = getApiUrl("lists/movies/box_office.json");
+        String url = getApiUrl("lists/movies/in_theaters.json");
         RequestParams params = new RequestParams("apikey", API_KEY);
         client.get(url, params, handler);
     }
