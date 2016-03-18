@@ -1,15 +1,15 @@
-// google-services.json for Jason Cai
+// google-services.json for Sarang Bhadsavle
 
 {
   "project_info": {
-    "project_id": "iris-2a878",
-    "project_number": "583784505153",
+    "project_id": "iris-1fd10",
+    "project_number": "118293830936",
     "name": "Iris"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:583784505153:android:c812d73e6e47eb20",
+        "mobilesdk_app_id": "1:118293830936:android:c812d73e6e47eb20",
         "client_id": "android:com.ee461l.iris",
         "client_type": 1,
         "android_client_info": {
@@ -19,15 +19,15 @@
       },
       "oauth_client": [
         {
-          "client_id": "583784505153-82ph03r5qn6bdls3meaiobn227u61hlt.apps.googleusercontent.com",
+          "client_id": "118293830936-sjje7gn9d8vht1dvita2tqkqvhf9ukci.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
             "package_name": "com.ee461l.iris",
-            "certificate_hash": "2CF9881A0E48AA440FE8DA7784EBA32218008E7F"
+            "certificate_hash": "29B8E65F7FF6D81688004B3E0BF0F23CA77508A5"
           }
         },
         {
-          "client_id": "583784505153-sh454d2979sutdkel1ruv2ui38mhbled.apps.googleusercontent.com",
+          "client_id": "118293830936-58mg1a6103fuqs6dcl7d2hq35memr3vu.apps.googleusercontent.com",
           "client_type": 3
         }
       ],

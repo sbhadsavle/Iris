@@ -2,16 +2,16 @@ apply plugin: 'com.android.application'
 
 android {
     signingConfigs {
-        config {
-            keyAlias 'androiddebugkey'
-            keyPassword 'android'
-            storeFile file('C:/Users/caiju/.android/debug.keystore')
-            storePassword 'android'
-        }
         configSarang {
             keyAlias 'androiddebugkey'
             keyPassword 'android'
             storeFile file('C:/Users/saran/.android/debug.keystore')
+            storePassword 'android'
+        }
+        configJason {
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+            storeFile file('C:/Users/caiju/.android/debug.keystore')
             storePassword 'android'
         }
     }
@@ -31,7 +31,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
-            signingConfig signingConfigs.configSarang
+            signingConfig signingConfigs.configJason
         }
     }
 }
