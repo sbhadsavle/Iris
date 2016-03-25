@@ -5,13 +5,7 @@ android {
         config {
             keyAlias 'androiddebugkey'
             keyPassword 'android'
-            storeFile file('C:/Users/caiju/.android/debug.keystore')
-            storePassword 'android'
-        }
-        configSarang {
-            keyAlias 'androiddebugkey'
-            keyPassword 'android'
-            storeFile file('C:/Users/saran/.android/debug.keystore')
+            storeFile file('/Users/Andoji/Documents/Chotu/2015-2016/Spring/EE461L/debug.keystore')
             storePassword 'android'
         }
     }
@@ -31,19 +25,22 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
-            signingConfig signingConfigs.configSarang
+            signingConfig signingConfigs.config
         }
     }
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
+    compile files('libs/android-async-http-1.4.3.jar')
     compile 'com.android.support:appcompat-v7:23.1.1'
     compile 'com.android.support:design:23.1.1'
     compile 'com.google.android.gms:play-services:8.4.0'
-    compile files('libs/android-async-http-1.4.3.jar')
     compile 'com.android.support:multidex:1.0.1'
+    compile 'com.google.android.gms:play-services-ads:8.4.0'
+    compile 'com.google.android.gms:play-services-identity:8.4.0'
+    compile 'com.google.android.gms:play-services-gcm:8.4.0'
 }
 
 apply plugin: 'com.google.gms.google-services'

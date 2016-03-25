@@ -5,8 +5,6 @@ package com.ee461l.iris;
         import com.loopj.android.http.RequestParams;
 
 public class RottenTomatoesClient {
-    // Sarang's key: 3zwzy3u52sevavjyn444a3ta
-    // (*)default key: 9htuhtcb4ymusd73d4z6jxcj
     private final String API_KEY = "9htuhtcb4ymusd73d4z6jxcj";
     private final String API_BASE_URL = "http://api.rottentomatoes.com/api/public/v1.0/";
     private AsyncHttpClient client;
@@ -24,6 +22,17 @@ public class RottenTomatoesClient {
     }
 
     private String getApiUrl(String relativeUrl) {
+
         return API_BASE_URL + relativeUrl;
     }
 }
+
+
+
+
+
+
+
+// Sarang's key: 3zwzy3u52sevavjyn444a3ta
+// (*)default key: 9htuhtcb4ymusd73d4z6jxcj
+
