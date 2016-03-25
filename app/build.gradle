@@ -5,9 +5,6 @@ android {
         configSarang {
             keyAlias 'androiddebugkey'
             keyPassword 'android'
-<<<<<<< HEAD
-            storeFile file('/Users/Andoji/Documents/Chotu/2015-2016/Spring/EE461L/debug.keystore')
-=======
             storeFile file('C:/Users/saran/.android/debug.keystore')
             storePassword 'android'
         }
@@ -15,7 +12,6 @@ android {
             keyAlias 'androiddebugkey'
             keyPassword 'android'
             storeFile file('C:/Users/caiju/.android/debug.keystore')
->>>>>>> b701c58d50d4660cba3c2a0204dd14a05a80eaa6
             storePassword 'android'
         }
     }
@@ -35,11 +31,7 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
-<<<<<<< HEAD
-            signingConfig signingConfigs.config
-=======
-            signingConfig signingConfigs.configJason
->>>>>>> b701c58d50d4660cba3c2a0204dd14a05a80eaa6
+            signingConfig signingConfigs.configSarang
         }
     }
 }
