@@ -2,16 +2,20 @@ apply plugin: 'com.android.application'
 
 android {
     signingConfigs {
-        config {
-            keyAlias 'androiddebugkey'
-            keyPassword 'android'
-            storeFile file('C:/Users/caiju/.android/debug.keystore')
-            storePassword 'android'
-        }
         configSarang {
             keyAlias 'androiddebugkey'
             keyPassword 'android'
+<<<<<<< HEAD
+            storeFile file('/Users/Andoji/Documents/Chotu/2015-2016/Spring/EE461L/debug.keystore')
+=======
             storeFile file('C:/Users/saran/.android/debug.keystore')
+            storePassword 'android'
+        }
+        configJason {
+            keyAlias 'androiddebugkey'
+            keyPassword 'android'
+            storeFile file('C:/Users/caiju/.android/debug.keystore')
+>>>>>>> b701c58d50d4660cba3c2a0204dd14a05a80eaa6
             storePassword 'android'
         }
     }
@@ -31,19 +35,26 @@ android {
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
         }
         debug {
-            signingConfig signingConfigs.configSarang
+<<<<<<< HEAD
+            signingConfig signingConfigs.config
+=======
+            signingConfig signingConfigs.configJason
+>>>>>>> b701c58d50d4660cba3c2a0204dd14a05a80eaa6
         }
     }
 }
 
 dependencies {
-    compile fileTree(include: ['*.jar'], dir: 'libs')
+    compile fileTree(dir: 'libs', include: ['*.jar'])
     testCompile 'junit:junit:4.12'
+    compile files('libs/android-async-http-1.4.3.jar')
     compile 'com.android.support:appcompat-v7:23.1.1'
     compile 'com.android.support:design:23.1.1'
     compile 'com.google.android.gms:play-services:8.4.0'
-    compile files('libs/android-async-http-1.4.3.jar')
     compile 'com.android.support:multidex:1.0.1'
+    compile 'com.google.android.gms:play-services-ads:8.4.0'
+    compile 'com.google.android.gms:play-services-identity:8.4.0'
+    compile 'com.google.android.gms:play-services-gcm:8.4.0'
 }
 
 apply plugin: 'com.google.gms.google-services'

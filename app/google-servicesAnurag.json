@@ -1,0 +1,56 @@
+{
+  "project_info": {
+    "project_id": "iris-ad9e7",
+    "project_number": "804245508235",
+    "name": "Iris"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:804245508235:android:c812d73e6e47eb20",
+        "client_id": "android:com.ee461l.iris",
+        "client_type": 1,
+        "android_client_info": {
+          "package_name": "com.ee461l.iris",
+          "certificate_hash": []
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "804245508235-upstje5mujrlbanlniifrufsordkuf0j.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ee461l.iris",
+            "certificate_hash": "8C09F6BA5A5F9D99BA8313B26538B3BD50D15D6F"
+          }
+        },
+        {
+          "client_id": "804245508235-rrk81tmb03hr74huru2htt4d949u0od3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "cloud_messaging_service": {
+          "status": 1,
+          "apns_config": []
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "google_signin_service": {
+          "status": 2
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "client_info": [],
+  "ARTIFACT_VERSION": "1"
+}
