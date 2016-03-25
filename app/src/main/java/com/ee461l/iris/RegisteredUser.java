@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class RegisteredUser {
     private String ID;
     private String password;
-    private ArrayList<Movie> ratedMovies = new ArrayList<Movie>();
+    private ArrayList<.BoxOfficeMovie> ratedMovies = new ArrayList<BoxOfficeMovie>();
     private ArrayList<Integer> ratings = new ArrayList<Integer>();
     private ArrayList<String> likedGenres = new ArrayList<String>();
     private ArrayList<Integer> genreRatings = new ArrayList<Integer>();
@@ -32,7 +32,7 @@ public class RegisteredUser {
         if(ratedMovies.contains(title)){
            //return;
         }else{
-            Movie movie = new Movie();
+            BoxOfficeMovie movie = new BoxOfficeMovie();
             ratedMovies.add(movie);
             ratings.add(rating);
         }
