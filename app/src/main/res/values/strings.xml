@@ -109,7 +109,7 @@
     <string name="signed_in_fmt">Signed in as: %s</string>
     <string name="signed_in">Signed in</string>
     <string name="signing_in">Signing in…</string>
-    <string name="signed_out">Signed out</string>
+    <string name="signed_out"></string>
     <string name="signed_in_err">"Error: please check logs."</string>
     <string name="error_null_person">
         Error: Plus.PeopleApi.getCurrentPerson returned null. Ensure that the Google+ API is
