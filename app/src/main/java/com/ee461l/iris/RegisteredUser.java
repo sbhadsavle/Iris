@@ -8,7 +8,7 @@ import java.util.ArrayList;
 public class RegisteredUser {
     private String ID;
     private String password;
-    private ArrayList<.BoxOfficeMovie> ratedMovies = new ArrayList<BoxOfficeMovie>();
+    private ArrayList<BoxOfficeMovie> ratedMovies = new ArrayList<BoxOfficeMovie>();
     private ArrayList<Integer> ratings = new ArrayList<Integer>();
     private ArrayList<String> likedGenres = new ArrayList<String>();
     private ArrayList<Integer> genreRatings = new ArrayList<Integer>();

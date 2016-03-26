@@ -26,6 +26,8 @@ public class LoginActivity extends AppCompatActivity implements
         GoogleApiClient.OnConnectionFailedListener,
         View.OnClickListener {
 
+    private static boolean hasSignedIn = false;
+
     private static final String TAG = "SignInActivity";
     private static final int RC_SIGN_IN = 9001;
     public final static String EXTRA_MESSAGE = "com.ee461l.iris.MESSAGE";
@@ -42,10 +44,11 @@ public class LoginActivity extends AppCompatActivity implements
         // Views
         mStatusTextView = (TextView) findViewById(R.id.status);
 
+
         // Button listeners
         findViewById(R.id.sign_in_button).setOnClickListener(this);
         findViewById(R.id.sign_out_button).setOnClickListener(this);
-        findViewById(R.id.disconnect_button).setOnClickListener(this);
+        //      findViewById(R.id.disconnect_button).setOnClickListener(this);
 
         // [START configure_signin]
         // Configure sign-in to request the user's ID, email address, and basic
@@ -123,8 +126,9 @@ public class LoginActivity extends AppCompatActivity implements
     // [START handleSignInResult]
     private void handleSignInResult(GoogleSignInResult result) {
         Log.d(TAG, "handleSignInResult:" + result.isSuccess());
-        if (result.isSuccess()) {
+        if (result.isSuccess() && !hasSignedIn) {
             // Signed in successfully, show authenticated UI.
+            hasSignedIn = true;
             GoogleSignInAccount acct = result.getSignInAccount();
             mStatusTextView.setText(getString(R.string.signed_in_fmt, acct.getDisplayName()));
             updateUI(true);
@@ -148,6 +152,7 @@ public class LoginActivity extends AppCompatActivity implements
 
     // [START signOut]
     private void signOut() {
+        hasSignedIn = false;
         Auth.GoogleSignInApi.signOut(mGoogleApiClient).setResultCallback(
                 new ResultCallback<Status>() {
                     @Override
@@ -161,17 +166,17 @@ public class LoginActivity extends AppCompatActivity implements
     // [END signOut]
 
     // [START revokeAccess]
-    private void revokeAccess() {
-        Auth.GoogleSignInApi.revokeAccess(mGoogleApiClient).setResultCallback(
-                new ResultCallback<Status>() {
-                    @Override
-                    public void onResult(Status status) {
-                        // [START_EXCLUDE]
-                        updateUI(false);
-                        // [END_EXCLUDE]
-                    }
-                });
-    }
+//    private void revokeAccess() {
+//        Auth.GoogleSignInApi.revokeAccess(mGoogleApiClient).setResultCallback(
+//                new ResultCallback<Status>() {
+//                    @Override
+//                    public void onResult(Status status) {
+//                        // [START_EXCLUDE]
+//                        updateUI(false);
+//                        // [END_EXCLUDE]
+//                    }
+//                });
+//    }
     // [END revokeAccess]
 
     @Override
@@ -218,9 +223,9 @@ public class LoginActivity extends AppCompatActivity implements
             case R.id.sign_out_button:
                 signOut();
                 break;
-            case R.id.disconnect_button:
-                revokeAccess();
-                break;
+//            case R.id.disconnect_button:
+//                revokeAccess();
+//                break;
         }
     }
 }

@@ -92,7 +92,7 @@
     <string name="action_settings">Settings</string>
 
     <!-- Strings related to login -->
-    <string name="title_text">Iris\nGoogle Sign-In</string>
+    <string name="title_text">Iris\nGoogle Credentials</string>
     <string name="title_activity_login">Login or Create an Account</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>

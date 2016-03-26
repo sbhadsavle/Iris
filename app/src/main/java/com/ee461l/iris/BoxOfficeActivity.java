@@ -6,7 +6,6 @@ package com.ee461l.iris;
         import org.json.JSONException;
         import org.json.JSONObject;
 
-        import android.app.Activity;
         import android.content.Intent;
         import android.os.Bundle;
         import android.support.v7.app.AppCompatActivity;
@@ -34,6 +33,7 @@ public class BoxOfficeActivity extends AppCompatActivity {
         // Fetch the data remotely
         fetchBoxOfficeMovies();
         setupMovieSelectedListener();
+
     }
 
     private void fetchBoxOfficeMovies() {
@@ -65,6 +65,11 @@ public class BoxOfficeActivity extends AppCompatActivity {
                 startActivity(i);
             }
         });
+    }
+
+    @Override
+    public void onBackPressed(){
+        finish();
     }
 
 }

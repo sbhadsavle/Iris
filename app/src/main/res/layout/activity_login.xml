@@ -37,7 +37,7 @@
                 android:layout_height="96dp"
                 android:layout_marginBottom="10dp"
                 android:layout_marginTop="@dimen/g_top_margin"
-                android:contentDescription="@string/desc_google_icon"
+                android:contentDescription="Iris Logo"
                 android:src="@drawable/iris_logo" />
 
             <TextView
@@ -85,7 +85,7 @@
 
                 <LinearLayout
                     android:id="@+id/sign_out_and_disconnect"
-                    android:layout_width="fill_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:orientation="horizontal"
@@ -101,12 +101,12 @@
                         android:layout_weight="1"
                         android:text="@string/sign_out" />
 
-                    <Button
+<!--                    <Button
                         android:id="@+id/disconnect_button"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="@string/disconnect"/>
+                        android:text="@string/disconnect"/> -->
 
                 </LinearLayout>
             </RelativeLayout>
