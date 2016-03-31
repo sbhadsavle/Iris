@@ -60,7 +60,8 @@ public class BoxOfficeActivity extends AppCompatActivity {
         lvMovies.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View item, int position, long rowId) {
-                Intent i = new Intent(BoxOfficeActivity.this, BoxOfficeDetailActivity.class);
+                // previously used to redirect to BoxOfficeDetailActivity
+                Intent i = new Intent(BoxOfficeActivity.this, ExploreMovieActivity.class);
                 i.putExtra(MOVIE_DETAIL_KEY, adapterMovies.getItem(position));
                 startActivity(i);
             }
