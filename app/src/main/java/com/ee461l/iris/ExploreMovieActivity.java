@@ -7,6 +7,8 @@ import android.os.Bundle;
 
 public class ExploreMovieActivity extends AppCompatActivity {
 
+    private static BoxOfficeMovie theMovie;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -21,5 +23,12 @@ public class ExploreMovieActivity extends AppCompatActivity {
         TabLayout tabLayout = (TabLayout) findViewById(R.id.sliding_tabs);
         tabLayout.setupWithViewPager(viewPager);
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
+
+        // assign the movie. NOTE: you need to manually load it. It doesn't load here
+        theMovie = (BoxOfficeMovie) getIntent().getSerializableExtra(BoxOfficeActivity.MOVIE_DETAIL_KEY);
+    }
+
+    public static BoxOfficeMovie getTheMovie(){
+        return theMovie;
     }
 }

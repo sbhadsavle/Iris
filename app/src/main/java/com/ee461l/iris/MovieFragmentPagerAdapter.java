@@ -25,7 +25,11 @@ public class MovieFragmentPagerAdapter extends FragmentPagerAdapter {
 
     @Override
     public Fragment getItem(int position) {
-        return MovieFragment.newInstance(position + 1);
+        if (position == 0){
+            return ExclusiveContentFragment.newInstance(position + 1);
+        }
+        return SampleFragment.newInstance(position + 1);
+
     }
 
     @Override

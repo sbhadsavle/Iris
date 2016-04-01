@@ -9,8 +9,8 @@
          http://content8.flixster.com/movie/11/15/86/11158674_pro.jpg -->
     <ImageView
         android:id="@+id/ivPosterImage"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="100dp"
+        android:layout_height="150dp"
         android:layout_alignParentLeft="true"
         android:layout_alignParentTop="true"
         android:maxHeight="179dp"
@@ -27,7 +27,7 @@
         android:layout_marginTop="5dp"
         android:layout_toRightOf="@+id/ivPosterImage"
         android:text="Critics Score: 93%"
-        android:textSize="14sp" />
+        android:textSize="18sp" />
 
     <TextView
         android:id="@+id/tvCast"
@@ -48,7 +48,7 @@
         android:layout_marginLeft="8dp"
         android:layout_toRightOf="@+id/ivPosterImage"
         android:text="The Dark Knight"
-        android:textSize="18sp" />
+        android:textSize="24sp" />
 
     <ScrollView
         android:layout_width="wrap_content"

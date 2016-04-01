@@ -10,16 +10,16 @@ import android.widget.TextView;
 /**
  * Created by sarang on 3/31/2016.
  */
-public class MovieFragment extends Fragment {
+public class SampleFragment extends Fragment {
 
     public static final String ARG_PAGE = "ARG_PAGE";
 
     private int mPage;
 
-    public static MovieFragment newInstance(int page) {
+    public static SampleFragment newInstance(int page) {
         Bundle args = new Bundle();
         args.putInt(ARG_PAGE, page);
-        MovieFragment fragment = new MovieFragment();
+        SampleFragment fragment = new SampleFragment();
         fragment.setArguments(args);
         return fragment;
     }
@@ -33,7 +33,7 @@ public class MovieFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        View view = inflater.inflate(R.layout.fragment_movie, container, false);
+        View view = inflater.inflate(R.layout.fragment_sample, container, false);
         TextView textView = (TextView) view;
         textView.setText("Fragment #" + mPage);
         return view;
