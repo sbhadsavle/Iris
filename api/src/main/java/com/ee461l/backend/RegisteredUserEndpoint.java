@@ -3,6 +3,8 @@ package com.ee461l.backend;
 import com.google.api.server.spi.config.Api;
 import com.google.api.server.spi.config.ApiMethod;
 import com.google.api.server.spi.config.ApiNamespace;
+import com.googlecode.objectify.ObjectifyService;
+import static com.googlecode.objectify.ObjectifyService.ofy;
 
 import java.util.logging.Logger;
 
@@ -35,7 +37,8 @@ public class RegisteredUserEndpoint {
     public RegisteredUser getRegisteredUser(@Named("id") Long id) {
         // TODO: Implement this function
         logger.info("Calling getRegisteredUser method");
-        return null;
+        RegisteredUser user = ofy().load().type(RegisteredUser.class).id(id).now();
+        return user;
     }
 
     /**
@@ -48,6 +51,7 @@ public class RegisteredUserEndpoint {
     public RegisteredUser insertRegisteredUser(RegisteredUser registeredUser) {
         // TODO: Implement this function
         logger.info("Calling insertRegisteredUser method");
-        return registeredUser;
+        ofy().save().entity(registeredUser).now();
+        return ofy().load().entity(registeredUser).now();
     }
 }

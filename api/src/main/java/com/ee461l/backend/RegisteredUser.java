@@ -15,7 +15,7 @@ public class RegisteredUser {
     private RegisteredUser(){}
 
     public RegisteredUser(String ID){
-        this.ID = ID;
+        this.ID = "Yolo";
     }
 
     public String getEmail(){
