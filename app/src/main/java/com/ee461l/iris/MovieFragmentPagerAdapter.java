@@ -10,7 +10,7 @@ import android.support.v4.app.FragmentPagerAdapter;
  */
 public class MovieFragmentPagerAdapter extends FragmentPagerAdapter {
     final int PAGE_COUNT = 3;
-    private String tabTitles[] = new String[] { "Exclusive Content", "Trailers", "Showtime" };
+    private String tabTitles[] = new String[] { "Exclusive Content", "Trailers", "Showtimes" };
     private Context context;
 
     public MovieFragmentPagerAdapter(FragmentManager fm, Context context) {
@@ -27,6 +27,9 @@ public class MovieFragmentPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         if (position == 0){
             return ExclusiveContentFragment.newInstance(position + 1);
+        }
+        if (position == 2){
+            return MovieMapFragment.newInstance(position + 1);
         }
         return SampleFragment.newInstance(position + 1);
 

@@ -31,6 +31,10 @@
             </intent-filter>
         </activity>
         <activity android:name=".ExploreMovieActivity" />
+        <activity android:name=".MovieMapActivity" />
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="AIzaSyABkAJquxI2lkF_xfv29MW01IR-nRn6uMs"/>
     </application>
 
 </manifest>

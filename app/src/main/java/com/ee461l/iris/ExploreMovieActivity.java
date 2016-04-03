@@ -24,6 +24,7 @@ public class ExploreMovieActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
         tabLayout.setTabGravity(TabLayout.GRAVITY_FILL);
 
+
         // assign the movie. NOTE: you need to manually load it. It doesn't load here
         theMovie = (BoxOfficeMovie) getIntent().getSerializableExtra(BoxOfficeActivity.MOVIE_DETAIL_KEY);
     }
