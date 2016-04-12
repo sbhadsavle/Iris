@@ -6,7 +6,6 @@ package com.ee461l.iris;
         import org.json.JSONException;
         import org.json.JSONObject;
 
-        import android.app.Activity;
         import android.content.Intent;
         import android.os.Bundle;
         import android.support.v7.app.AppCompatActivity;
@@ -34,6 +33,7 @@ public class BoxOfficeActivity extends AppCompatActivity {
         // Fetch the data remotely
         fetchBoxOfficeMovies();
         setupMovieSelectedListener();
+
     }
 
     private void fetchBoxOfficeMovies() {
@@ -60,11 +60,20 @@ public class BoxOfficeActivity extends AppCompatActivity {
         lvMovies.setOnItemClickListener(new OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View item, int position, long rowId) {
-                Intent i = new Intent(BoxOfficeActivity.this, BoxOfficeDetailActivity.class);
+                // previously used to redirect to BoxOfficeDetailActivity
+                Intent i = new Intent(BoxOfficeActivity.this, ExploreMovieActivity.class);
                 i.putExtra(MOVIE_DETAIL_KEY, adapterMovies.getItem(position));
                 startActivity(i);
             }
         });
     }
 
+    @Override
+    public void onBackPressed(){
+        finish();
+    }
+
 }
+
+
+

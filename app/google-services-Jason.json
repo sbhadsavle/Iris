@@ -1,0 +1,58 @@
+// google-services.json for Jason Cai
+
+{
+  "project_info": {
+    "project_id": "iris-2a878",
+    "project_number": "583784505153",
+    "name": "Iris"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:583784505153:android:c812d73e6e47eb20",
+        "client_id": "android:com.ee461l.iris",
+        "client_type": 1,
+        "android_client_info": {
+          "package_name": "com.ee461l.iris",
+          "certificate_hash": []
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "583784505153-82ph03r5qn6bdls3meaiobn227u61hlt.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ee461l.iris",
+            "certificate_hash": "2CF9881A0E48AA440FE8DA7784EBA32218008E7F"
+          }
+        },
+        {
+          "client_id": "583784505153-sh454d2979sutdkel1ruv2ui38mhbled.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "cloud_messaging_service": {
+          "status": 1,
+          "apns_config": []
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "google_signin_service": {
+          "status": 2
+        },
+        "ads_service": {
+          "status": 1
+        }
+      }
+    }
+  ],
+  "client_info": [],
+  "ARTIFACT_VERSION": "1"
+}

@@ -33,22 +33,32 @@
             <!-- TODO: Change so that this displays Logo -->
             <ImageView
                 android:id="@+id/google_icon"
-                android:layout_width="48dp"
-                android:layout_height="48dp"
+                android:layout_width="96dp"
+                android:layout_height="96dp"
                 android:layout_marginBottom="10dp"
                 android:layout_marginTop="@dimen/g_top_margin"
-                android:contentDescription="@string/desc_google_icon"
-                android:src="@drawable/large_movie_poster" />
+                android:contentDescription="Iris Logo"
+                android:src="@drawable/iris_logo" />
 
             <TextView
                 android:id="@+id/title_text"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
                 android:text="@string/title_text"
                 android:gravity="center"
                 android:textColor="@android:color/black"
                 android:textSize="36sp" />
+
+            <!-- subtitle? -->
+            <TextView
+                android:id="@+id/subtitle_text"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="10dp"
+                android:text="@string/subtitle_text"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                android:textSize="24sp" />
 
             <TextView
                 android:id="@+id/status"
@@ -85,7 +95,7 @@
 
                 <LinearLayout
                     android:id="@+id/sign_out_and_disconnect"
-                    android:layout_width="fill_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
                     android:orientation="horizontal"
@@ -101,12 +111,12 @@
                         android:layout_weight="1"
                         android:text="@string/sign_out" />
 
-                    <Button
+<!--                    <Button
                         android:id="@+id/disconnect_button"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
                         android:layout_weight="1"
-                        android:text="@string/disconnect"/>
+                        android:text="@string/disconnect"/> -->
 
                 </LinearLayout>
             </RelativeLayout>

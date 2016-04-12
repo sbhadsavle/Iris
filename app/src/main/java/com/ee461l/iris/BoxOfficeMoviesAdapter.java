@@ -40,3 +40,8 @@ public class BoxOfficeMoviesAdapter extends ArrayAdapter<BoxOfficeMovie> {
         return convertView;
     }
 }
+
+
+
+
+

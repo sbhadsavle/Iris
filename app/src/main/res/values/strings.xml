@@ -92,7 +92,8 @@
     <string name="action_settings">Settings</string>
 
     <!-- Strings related to login -->
-    <string name="title_text">Google Sign-In\nQuickstart</string>
+    <string name="title_text">Iris</string>
+    <string name="subtitle_text">Sign-in with Google</string>
     <string name="title_activity_login">Login or Create an Account</string>
     <string name="prompt_email">Email</string>
     <string name="prompt_password">Password</string>
@@ -109,7 +110,7 @@
     <string name="signed_in_fmt">Signed in as: %s</string>
     <string name="signed_in">Signed in</string>
     <string name="signing_in">Signing in…</string>
-    <string name="signed_out">Signed out</string>
+    <string name="signed_out"></string>
     <string name="signed_in_err">"Error: please check logs."</string>
     <string name="error_null_person">
         Error: Plus.PeopleApi.getCurrentPerson returned null. Ensure that the Google+ API is
