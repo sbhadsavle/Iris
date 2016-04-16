@@ -1,6 +1,8 @@
 package com.ee461l.iris;
 
 import android.annotation.SuppressLint;
+import android.location.Address;
+import android.location.Geocoder;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.text.Html;
@@ -12,6 +14,11 @@ import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.io.IOException;
+import java.util.Date;
+import java.util.List;
+import java.util.Locale;
 
 /**
  * Created by saran on 4/15/2016.
@@ -59,8 +66,26 @@ public class ShowtimesFragment extends Fragment {
         webView.getSettings().setUserAgentString(newUA);
 
         //webView.loadUrl("https://www.bing.com/search?q="+currentMovieTitle+"+showtimes");
+
+
+        Geocoder geocoder = new Geocoder(this.getActivity(), Locale.getDefault());
+//        // lat,lng, your current location
+//
+        List<Address> addresses = null;
+        try {addresses = geocoder.getFromLocation(30.2672, -97.7431, 1);}
+        catch (IOException e) {e.printStackTrace();}
+        String postalCode = addresses.get(0).getPostalCode();
+
+        Date d = new Date();
+        String year = (d.getYear() + 1900) + "";
+        String month = String.format("%02d", d.getMonth() + 1);
+        String day = String.format("%02d", d.getDate());
+        String fullDate = year + month + day;
+
         webView.loadUrl("http://www.rottentomatoes.com/showtimes/?zipcode=78705&day=20160416&movies=%5B771370507%5D&limit=20");
         return view;
     }
+
+
 
 }
