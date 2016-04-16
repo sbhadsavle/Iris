@@ -26,7 +26,7 @@ public class YoutubeConnector {
 
     // Your developer key goes here
     public static final String KEY
-            = "AIzaSyA72aVDKMAe8wazZsuZ9Rwk0sR6GHx5FAg";
+            = "AIzaSyA7WOh5PmngaXw7BmvLWKq3JJlMJi055Hc";
 
     public YoutubeConnector() {
         youtube = new YouTube.Builder(new NetHttpTransport(),

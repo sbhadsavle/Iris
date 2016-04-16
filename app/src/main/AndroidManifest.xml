@@ -44,9 +44,14 @@
         </activity>
         <activity android:name=".ExploreMovieActivity" />
         <activity android:name=".MovieMapActivity" />
+        <activity
+            android:name=".YoutubePlayerActivity"
+            android:label="YoutubePlayerActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
         <meta-data
             android:name="com.google.android.geo.API_KEY"
-            android:value="AIzaSyABkAJquxI2lkF_xfv29MW01IR-nRn6uMs"/>
+            android:value="AIzaSyCXpFW_0-13XalwJyOoH9Ugbz3FkpQ0X3w"/>
     </application>
 
 </manifest>

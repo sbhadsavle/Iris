@@ -28,8 +28,12 @@ public class MovieFragmentPagerAdapter extends FragmentPagerAdapter {
         if (position == 0){
             return ExclusiveContentFragment.newInstance(position + 1);
         }
+        if(position == 1) {
+            return TrailersFragment.newInstance(position + 1);
+        }
         if (position == 2){
-            return MovieMapFragment.newInstance(position + 1);
+            //return MovieMapFragment.newInstance(position + 1);
+            return ShowtimesFragment.newInstance(position + 1);
         }
         return SampleFragment.newInstance(position + 1);
 
