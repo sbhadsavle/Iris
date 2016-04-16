@@ -7,6 +7,7 @@ import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebChromeClient;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
 import android.widget.ImageView;
@@ -43,13 +44,22 @@ public class ShowtimesFragment extends Fragment {
         WebView webView = (WebView) view;
         String currentMovieTitle = ExploreMovieActivity.getTheMovie().getTitle();
         currentMovieTitle = currentMovieTitle.replace(" ", "+");
-        webView.loadUrl("https://www.google.com/search?q="+currentMovieTitle+"+showtimes");
+
+//        webView.setWebChromeClient(new WebChromeClient());
+        webView.getSettings().setJavaScriptEnabled(true);
+//        webView.getSettings().setUserAgentString("Mozilla/5.0 (iPhone; CPU iPhone OS 8_3 like Mac OS X) AppleWebKit/600.14 (KHTML, like Gecko) Mobile/12F70");
         webView.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
                 view.loadUrl(url);
                 return true;
-            }});
+            }
+        });
+        String newUA= "Mozilla/5.0 (X11; U; Linux i686; en-US; rv:1.9.0.4) Gecko/20100101 Firefox/4.0";
+        webView.getSettings().setUserAgentString(newUA);
+
+        //webView.loadUrl("https://www.bing.com/search?q="+currentMovieTitle+"+showtimes");
+        webView.loadUrl("http://www.rottentomatoes.com/showtimes/?zipcode=78705&day=20160416&movies=%5B771370507%5D&limit=20");
         return view;
     }
 
