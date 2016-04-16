@@ -6,6 +6,7 @@ import android.location.Geocoder;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
 import android.text.Html;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -42,6 +43,14 @@ public class ShowtimesFragment extends Fragment {
         mPage = getArguments().getInt(ARG_PAGE);
     }
 
+/*    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = inflater.inflate(R.layout.fragment_showtimes, container, false);
+        TextView textView = (TextView) view;
+        textView.setText("Fragment #" + mPage + ExploreMovieActivity.getTheMovie().getID());
+        return view;
+    }*/
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -54,7 +63,7 @@ public class ShowtimesFragment extends Fragment {
 
 //        webView.setWebChromeClient(new WebChromeClient());
         webView.getSettings().setJavaScriptEnabled(true);
-//        webView.getSettings().setUserAgentString("Mozilla/5.0 (iPhone; CPU iPhone OS 8_3 like Mac OS X) AppleWebKit/600.14 (KHTML, like Gecko) Mobile/12F70");
+//      webView.getSettings().setUserAgentString("Mozilla/5.0 (iPhone; CPU iPhone OS 8_3 like Mac OS X) AppleWebKit/600.14 (KHTML, like Gecko) Mobile/12F70");
         webView.setWebViewClient(new WebViewClient() {
             @Override
             public boolean shouldOverrideUrlLoading(WebView view, String url) {
@@ -82,7 +91,10 @@ public class ShowtimesFragment extends Fragment {
         String day = String.format("%02d", d.getDate());
         String fullDate = year + month + day;
 
-        webView.loadUrl("http://www.rottentomatoes.com/showtimes/?zipcode=78705&day=20160416&movies=%5B771370507%5D&limit=20");
+        String movieID = ExploreMovieActivity.getTheMovie().getID();
+
+        webView.loadUrl("http://www.rottentomatoes.com/showtimes/?zipcode=" + postalCode + "&day=" + fullDate + "&movies=%5B" + movieID + "%5D&limit=20");
+
         return view;
     }
 
