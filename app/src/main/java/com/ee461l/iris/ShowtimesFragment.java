@@ -76,12 +76,15 @@ public class ShowtimesFragment extends Fragment {
 
         //webView.loadUrl("https://www.bing.com/search?q="+currentMovieTitle+"+showtimes");
 
+        GPSTracker gps = new GPSTracker(this.getActivity());
+        double lat = gps.getLatitude();
+        double lng = gps.getLongitude();
 
         Geocoder geocoder = new Geocoder(this.getActivity(), Locale.getDefault());
 //        // lat,lng, your current location
 //
         List<Address> addresses = null;
-        try {addresses = geocoder.getFromLocation(30.2672, -97.7431, 1);}
+        try {addresses = geocoder.getFromLocation(lat, lng, 1);}
         catch (IOException e) {e.printStackTrace();}
         String postalCode = addresses.get(0).getPostalCode();
 
