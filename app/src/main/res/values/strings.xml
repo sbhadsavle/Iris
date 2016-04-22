@@ -139,9 +139,23 @@
 
     <!-- List strings -->
     <string-array name="genres">
-        <item>Item 1</item>
-        <item>Item 2</item>
-        <item>Item 3</item>
+        <item>Action and Adventure</item>
+        <item>Animation</item>
+        <item>Art House and International Movies</item>
+        <item>Classics</item>
+        <item>Comedy</item>
+        <item>Documentary</item>
+        <item>Drama</item>
+        <item>Horror</item>
+        <item>Kids and Family</item>
+        <item>Musical and Performing Arts</item>
+        <item>Mystery and Suspense</item>
+        <item>Romance</item>
+        <item>Science Fiction and Fantasy</item>
+        <item>Special Interest</item>
+        <item>Sports and Fitness</item>
+        <item>Television</item>
+        <item>Western</item>
     </string-array>
     <string name="actorSearch">Actors (Enter up to 3)</string>
     <string name="buttonText">Find Recommendations</string>
