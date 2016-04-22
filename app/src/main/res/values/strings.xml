@@ -135,4 +135,14 @@
     <string name="seek_to">Jump To</string>
     <string name="seek_to_hint">Seconds</string>
     <string name="title_activity_youtube_player">YoutubePlayerActivity</string>
+
+
+    <!-- List strings -->
+    <string-array name="genres">
+        <item>Item 1</item>
+        <item>Item 2</item>
+        <item>Item 3</item>
+    </string-array>
+    <string name="actorSearch">Actors (Enter up to 3)</string>
+    <string name="buttonText">Find Recommendations</string>
 </resources>
