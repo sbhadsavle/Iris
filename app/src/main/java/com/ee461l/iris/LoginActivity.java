@@ -134,7 +134,8 @@ public class LoginActivity extends AppCompatActivity implements
             GoogleSignInAccount acct = result.getSignInAccount();
             mStatusTextView.setText(getString(R.string.signed_in_fmt, acct.getDisplayName()));
             updateUI(true);
-            Intent intentToEnterApp = new Intent(this, BoxOfficeActivity.class);
+            //Intent intentToEnterApp = new Intent(this, BoxOfficeActivity.class);
+            Intent intentToEnterApp = new Intent(this, AfterLoginActivity.class);
             Intent filters = new Intent(this, FiltersActivity.class);
             String userName = mStatusTextView.getText().toString();
             String id = acct.getId();
