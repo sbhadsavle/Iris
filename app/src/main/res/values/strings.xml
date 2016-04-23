@@ -157,6 +157,14 @@
         <item>Television</item>
         <item>Western</item>
     </string-array>
-    <string name="actorSearch">Actors (Enter up to 3)</string>
-    <string name="buttonText">Find Recommendations</string>
+    <string name="buttonText">Select Actors</string>
+    <string name="genreFilters">Genre Filters</string>
+    <string name="actorFilterInstruction">Type the name of Actors you wish to filter Seperating each with: \",\"</string>
+    <string name="filterActors">Actor Filter</string>
+    <string name="warning">Do NOT put any white space before or after the \",\"</string>
+    <string name="exampleInput">e.x. Actor1,Actor2,Actor3,etc.</string>
+    <string name="chooseDirector">Choose Director</string>
+    <string name="directorFilterInstruction">Type in the name of the Director you want to filter</string>
+    <string name="filterDirector">Director Filter</string>
+    <string name="finish">Finish</string>
 </resources>
