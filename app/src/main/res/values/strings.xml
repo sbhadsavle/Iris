@@ -135,4 +135,36 @@
     <string name="seek_to">Jump To</string>
     <string name="seek_to_hint">Seconds</string>
     <string name="title_activity_youtube_player">YoutubePlayerActivity</string>
+
+
+    <!-- List strings -->
+    <string-array name="genres">
+        <item>Action and Adventure</item>
+        <item>Animation</item>
+        <item>Art House and International Movies</item>
+        <item>Classics</item>
+        <item>Comedy</item>
+        <item>Documentary</item>
+        <item>Drama</item>
+        <item>Horror</item>
+        <item>Kids and Family</item>
+        <item>Musical and Performing Arts</item>
+        <item>Mystery and Suspense</item>
+        <item>Romance</item>
+        <item>Science Fiction and Fantasy</item>
+        <item>Special Interest</item>
+        <item>Sports and Fitness</item>
+        <item>Television</item>
+        <item>Western</item>
+    </string-array>
+    <string name="buttonText">Select Actors</string>
+    <string name="genreFilters">Genre Filters</string>
+    <string name="actorFilterInstruction">Type the name of Actors you wish to filter Seperating each with: \",\"</string>
+    <string name="filterActors">Actor Filter</string>
+    <string name="warning">Do NOT put any white space before or after the \",\"</string>
+    <string name="exampleInput">e.x. Actor1,Actor2,Actor3,etc.</string>
+    <string name="chooseDirector">Choose Director</string>
+    <string name="directorFilterInstruction">Type in the name of the Director you want to filter</string>
+    <string name="filterDirector">Director Filter</string>
+    <string name="finish">Finish</string>
 </resources>
