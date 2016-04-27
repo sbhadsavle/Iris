@@ -27,13 +27,13 @@ public class UnitTest {
 
 
     @Test
-    public void zipcodeIsCorrect() throws Exception {
+    public void testZipcode() throws Exception {
         geocod.getAddress(lat,lon);
         assertEquals(geocod.getPIN(),zipcode);
     }
 
     @Test
-    public void listContainsMovie() throws Exception {
+    public void testMovieList() throws Exception {
         client = new RottenTomatoesClient();
         client.getBoxOfficeMovies(new JsonHttpResponseHandler() {
             @Override
@@ -53,7 +53,7 @@ public class UnitTest {
         assertTrue(containsMovie());
     }
 
-    public boolean containsMovie(){
+    private boolean containsMovie(){
         for(BoxOfficeMovie m: movies){
             if(m.getTitle().equals(movieName)){
                 return true;
