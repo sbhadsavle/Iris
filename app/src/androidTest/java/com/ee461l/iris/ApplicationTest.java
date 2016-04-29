@@ -35,11 +35,11 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
         super(Application.class);
     }
 
-//    @Test
-//    public void testZipcode() throws Exception {
-//        geocod.getAddress(lat, lon);
-//        assertEquals(geocod.getPIN(), zipcode);
-//    }
+    @Test
+    public void testZipcode() throws Exception {
+        geocod.getAddress(lat, lon);
+        assertEquals(geocod.getPIN(), zipcode);
+    }
 
     @Test
     public void testMovieList() throws Exception {
@@ -59,14 +59,14 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
             }
         });
 
-        boolean res = false;
 
-        for(BoxOfficeMovie b : movies){
-            if(b.getTitle().equals(movieName)) {
-                res = true;
-            }
+        ArrayList<String> titles = new ArrayList<String>(0);
+        for(BoxOfficeMovie b: movies){
+            titles.add(b.getTitle());
         }
-        assertTrue(res);
+
+        boolean result = titles.contains(movieName);
+        assertFalse(!result);
     }
 
 }

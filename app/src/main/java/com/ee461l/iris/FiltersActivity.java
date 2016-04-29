@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import android.content.Context;
 import android.content.SharedPreferences;
+import android.preference.Preference;
+import android.preference.PreferenceManager;
 import android.support.v7.app.AppCompatActivity;
 import android.content.Intent;
 import android.os.Bundle;
@@ -23,8 +25,10 @@ public class FiltersActivity extends AppCompatActivity implements
     Button button;
     ListView listView;
     ArrayAdapter<String> adapter;
+    ArrayList<String> gen = new ArrayList<>();
     String selected;
     private String id;
+    String[] genres;
 
     /** Called when the activity is first created. */
     @Override
@@ -34,20 +38,40 @@ public class FiltersActivity extends AppCompatActivity implements
 
         findViewsById();
 
-        String[] genres = getResources().getStringArray(R.array.genres);
+        genres = getResources().getStringArray(R.array.genres);
+
         adapter = new ArrayAdapter<String>(this,
                 android.R.layout.simple_list_item_multiple_choice, genres);
         listView.setChoiceMode(ListView.CHOICE_MODE_MULTIPLE);
         listView.setAdapter(adapter);
 
-        id = "default";
-        Bundle extra = getIntent().getExtras();
-        if(extra != null){
-            id = extra.getString("USER_ID");
-        }
+        id = LoginActivity.id;
+//        Bundle extra = getIntent().getExtras();
+//        if(extra != null){
+//            id = extra.getString("USER_ID");
+//        }
 
-        SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
         selected =sharedPref.getString(id, "");
+        if(!selected.equals("")) {
+            ArrayList<Integer> pos = new ArrayList<>();
+
+            String[] positions = selected.split(";");
+
+            for (int i = 0; i < positions.length; i += 1) {
+                pos.add(Integer.valueOf(positions[i]));
+            }
+
+            for (Integer i : pos) {
+                listView.setItemChecked(i,true);
+            }
+
+//            for(int i = 0; i < genres.length; i++){
+//                if(!pos.contains(i)){
+//                    listView.setItemChecked(i, false);
+//                }
+//            }
+        }
 
         button.setOnClickListener(this);
     }
@@ -55,6 +79,32 @@ public class FiltersActivity extends AppCompatActivity implements
     private void findViewsById() {
         listView = (ListView) findViewById(R.id.listView);
         button = (Button) findViewById(R.id.button);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+        selected =sharedPref.getString(id, "");
+        if(!selected.equals("")) {
+            ArrayList<Integer> pos = new ArrayList<>();
+
+            String[] positions = selected.split(";");
+
+            for (int i = 0; i < positions.length; i += 1) {
+                pos.add(Integer.valueOf(positions[i]));
+            }
+
+            for (Integer i : pos) {
+                listView.setItemChecked(i, true);
+            }
+
+//            for(int i = 0; i < genres.length; i++){
+//                if(!pos.contains(i)){
+//                    listView.setItemChecked(i, false);
+//                }
+//            }
+        }
     }
 
     public void onClick(View v) {
@@ -65,10 +115,9 @@ public class FiltersActivity extends AppCompatActivity implements
             // Item position in adapter
             int position = checked.keyAt(i);
             // Add genres if it is checked i.e.) == TRUE!
-            if (checked.valueAt(i)) {
+            if(checked.valueAt(i)) {
                 selectedItems.add(adapter.getItem(position));
-                sb.append(i);
-                sb.append(";");
+                sb.append(checked.keyAt(i) + ";");
             }
         }
 
@@ -81,14 +130,16 @@ public class FiltersActivity extends AppCompatActivity implements
         }
 
         Intent intent = new Intent(getApplicationContext(),BoxOfficeActivity.class);
+        Intent nextFilter = new Intent(getApplicationContext(),FiltersActorActivity.class);
 
         // Create a bundle object
         Bundle b = new Bundle();
         b.putStringArray("selectedItems", outputStrArr);
 
-        SharedPreferences sharedPref = this.getPreferences(Context.MODE_PRIVATE);
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
         SharedPreferences.Editor editor = sharedPref.edit();
         editor.putString(id, selected);
+        editor.commit();
 
         // Add the bundle to the intent.
         intent.putExtras(b);
