@@ -1,9 +1,5 @@
 package com.ee461l.iris;
 
-import android.app.Application;
-import android.support.test.runner.AndroidJUnit4;
-import android.test.ApplicationTestCase;
-
 import com.loopj.android.http.JsonHttpResponseHandler;
 
 import org.json.JSONArray;
@@ -12,14 +8,12 @@ import org.json.JSONObject;
 import org.junit.Test;
 import java.util.ArrayList;
 
-import org.junit.runner.RunWith;
-
+import static org.junit.Assert.*;
 
 /**
- * <a href="http://d.android.com/tools/testing/testing_android.html">Testing Fundamentals</a>
+ * To work on unit tests, switch the Test Artifact in the Build Variants view.
  */
-@RunWith(AndroidJUnit4.class)
-public class ApplicationTest extends ApplicationTestCase<Application> {
+public class UnitTest {
     private static ArrayList<BoxOfficeMovie> movies = new ArrayList<>();
     private RottenTomatoesClient client;
     getReverseGeoCoding geocod = new getReverseGeoCoding();
@@ -31,14 +25,11 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
     //Replace string below with the Name of a currently airing movie (Currently: The Jungle Book)
     private String movieName = "The Jungle Book";
 
-    public ApplicationTest() {
-        super(Application.class);
-    }
 
     @Test
     public void testZipcode() throws Exception {
-        geocod.getAddress(lat, lon);
-        assertEquals(geocod.getPIN(), zipcode);
+        geocod.getAddress(lat,lon);
+        assertEquals(geocod.getPIN(),zipcode);
     }
 
     @Test
@@ -59,14 +50,15 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
             }
         });
 
-
-        ArrayList<String> titles = new ArrayList<String>(0);
-        for(BoxOfficeMovie b: movies){
-            titles.add(b.getTitle());
-        }
-
-        boolean result = titles.contains(movieName);
-        assertFalse(!result);
+        assertTrue(containsMovie());
     }
 
+    private boolean containsMovie(){
+        for(BoxOfficeMovie m: movies){
+            if(m.getTitle().equals(movieName)){
+                return true;
+            }
+        }
+        return false;
+    }
 }

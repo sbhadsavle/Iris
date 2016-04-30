@@ -52,6 +52,7 @@ public class TrailersFragment extends Fragment {
         BoxOfficeMovie movie = ExploreMovieActivity.getTheMovie();
         //find the movie on youtube
         String title = movie.getTitle();
+        title = title + " trailer";
         searchOnYoutube(title);
         //update the view
         trailer_title = (TextView)view.findViewById(R.id.video_title);

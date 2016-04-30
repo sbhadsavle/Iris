@@ -33,6 +33,7 @@ public class LoginActivity extends AppCompatActivity implements
     private static final String TAG = "SignInActivity";
     private static final int RC_SIGN_IN = 9001;
     public final static String EXTRA_MESSAGE = "com.ee461l.iris.MESSAGE";
+    public static String id;
 
     private GoogleApiClient mGoogleApiClient;
     private TextView mStatusTextView;
@@ -136,10 +137,8 @@ public class LoginActivity extends AppCompatActivity implements
             updateUI(true);
             //Intent intentToEnterApp = new Intent(this, BoxOfficeActivity.class);
             Intent intentToEnterApp = new Intent(this, AfterLoginActivity.class);
-            Intent filters = new Intent(this, FiltersActivity.class);
             String userName = mStatusTextView.getText().toString();
-            String id = acct.getId();
-            filters.putExtra("USER_ID", id);
+            id = acct.getId();
             intentToEnterApp.putExtra(EXTRA_MESSAGE, userName);
             startActivity(intentToEnterApp);
         } else {
