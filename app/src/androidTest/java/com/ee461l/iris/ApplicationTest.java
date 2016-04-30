@@ -18,8 +18,11 @@ import org.junit.runner.RunWith;
 /**
  * <a href="http://d.android.com/tools/testing/testing_android.html">Testing Fundamentals</a>
  */
+
+
 @RunWith(AndroidJUnit4.class)
 public class ApplicationTest extends ApplicationTestCase<Application> {
+
     private static ArrayList<BoxOfficeMovie> movies = new ArrayList<>();
     private RottenTomatoesClient client;
     getReverseGeoCoding geocod = new getReverseGeoCoding();
@@ -66,7 +69,12 @@ public class ApplicationTest extends ApplicationTestCase<Application> {
         }
 
         boolean result = titles.contains(movieName);
-        assertFalse(!result);
+        assertTrue(result);
+    }
+
+    @Test
+    public void testFilters(){
+
     }
 
 }

@@ -76,24 +76,24 @@ public class ShowtimesFragment extends Fragment {
 
         //webView.loadUrl("https://www.bing.com/search?q="+currentMovieTitle+"+showtimes");
 
-        getReverseGeoCoding geocod = new getReverseGeoCoding();
+//        getReverseGeoCoding geocod = new getReverseGeoCoding();
 
         GPSTracker gps = new GPSTracker(this.getActivity());
         double lat = gps.getLatitude();
         double lng = gps.getLongitude();
 
-        geocod.getAddress(lat,lng);
+//        geocod.getAddress(lat,lng);
 
-        String postalCode = geocod.getPIN();
+//        String postalCode = geocod.getPIN();
 
-//        Geocoder geocoder = new Geocoder(this.getActivity(), Locale.getDefault());
-////        // lat,lng, your current location
-////
-//        List<Address> addresses = null;
-//        try {addresses = geocoder.getFromLocation(lat, lng, 1);}
-//        catch (IOException e) {e.printStackTrace();}
+        Geocoder geocoder = new Geocoder(this.getActivity(), Locale.getDefault());
+        // lat,lng, your current location
+
+        List<Address> addresses = null;
+        try {addresses = geocoder.getFromLocation(lat, lng, 1);}
+        catch (IOException e) {e.printStackTrace();}
 //        System.out.println("Sarang: is it present??? " + Geocoder.isPresent());
-//        String postalCode = addresses.get(0).getPostalCode();
+        String postalCode = addresses.get(0).getPostalCode();
 
 
 

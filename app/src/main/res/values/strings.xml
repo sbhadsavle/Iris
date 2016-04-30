@@ -137,6 +137,15 @@
     <string name="title_activity_youtube_player">YoutubePlayerActivity</string>
 
 
+    <!--List of Movie Ratings-->
+    <string-array name="movieRatings">
+        <item>All Movies</item>
+        <item>20% or higher</item>
+        <item>40% or higher</item>
+        <item>60% or higher</item>
+        <item>80% or higher</item>
+    </string-array>
+
     <!-- List strings -->
     <string-array name="genres">
         <item>Action and Adventure</item>

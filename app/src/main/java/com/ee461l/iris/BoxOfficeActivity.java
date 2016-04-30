@@ -17,6 +17,9 @@ package com.ee461l.iris;
         import com.loopj.android.http.JsonHttpResponseHandler;
 
 public class BoxOfficeActivity extends AppCompatActivity {
+
+    private String[] genres;
+
     private ListView lvMovies;
     private BoxOfficeMoviesAdapter adapterMovies;
     private RottenTomatoesClient client;
@@ -31,10 +34,16 @@ public class BoxOfficeActivity extends AppCompatActivity {
         adapterMovies = new BoxOfficeMoviesAdapter(this, aMovies);
         lvMovies.setAdapter(adapterMovies);
         // Fetch the data remotely
+        Bundle extras = getIntent().getExtras();
+        if(extras!=null){
+            genres = (String[])extras.get("selectedItems");
+
+        }
         fetchBoxOfficeMovies();
         setupMovieSelectedListener();
 
     }
+
 
     private void fetchBoxOfficeMovies() {
         client = new RottenTomatoesClient();
@@ -56,6 +65,10 @@ public class BoxOfficeActivity extends AppCompatActivity {
         });
     }
 
+    private void filterGenres(){
+
+    }
+
     public void setupMovieSelectedListener() {
         lvMovies.setOnItemClickListener(new OnItemClickListener() {
             @Override
@@ -67,6 +80,7 @@ public class BoxOfficeActivity extends AppCompatActivity {
             }
         });
     }
+
 
     @Override
     public void onBackPressed(){

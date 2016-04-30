@@ -4,16 +4,15 @@
 
     <ListView
         android:layout_width="wrap_content"
-        android:layout_height="450dp"
+        android:layout_height="500dp"
         android:id="@+id/listView"
-        android:layout_alignParentTop="true"
-        android:layout_alignParentStart="true"
-        android:layout_marginTop="69dp" />
+        android:layout_below="@+id/textView"
+        android:layout_alignParentStart="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/buttonText"
+        android:text="Go To My Movies"
         android:id="@+id/button"
         android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true" />
@@ -21,9 +20,63 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/genreFilters"
-        android:id="@+id/textView4"
+        android:textAppearance="?android:attr/textAppearanceLarge"
+        android:text="Genres"
+        android:id="@+id/textView"
         android:layout_alignParentTop="true"
-        android:layout_centerHorizontal="true"
-        android:textSize="50sp" />
+        android:layout_centerHorizontal="true" />
+
+    <Spinner
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:id="@+id/spinner"
+        android:layout_alignTop="@+id/checkBox2"
+        android:layout_toEndOf="@+id/button" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="G"
+        android:id="@+id/checkBox"
+        android:checked="false"
+        android:layout_below="@+id/listView"
+        android:layout_alignParentStart="true"
+        android:layout_marginTop="41dp" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PG"
+        android:id="@+id/checkBox2"
+        android:layout_below="@+id/checkBox"
+        android:layout_alignStart="@+id/checkBox"
+        android:checked="false" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="PG-13"
+        android:id="@+id/checkBox3"
+        android:layout_below="@+id/checkBox2"
+        android:layout_alignStart="@+id/checkBox2"
+        android:checked="false" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="R"
+        android:id="@+id/checkBox4"
+        android:layout_below="@+id/checkBox3"
+        android:layout_alignStart="@+id/checkBox3"
+        android:checked="false" />
+
+    <CheckBox
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="NC-17"
+        android:id="@+id/checkBox5"
+        android:layout_below="@+id/checkBox4"
+        android:layout_alignStart="@+id/checkBox4"
+        android:checked="false" />
+
 </RelativeLayout>
