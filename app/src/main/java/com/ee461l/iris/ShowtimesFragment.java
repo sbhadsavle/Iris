@@ -1,10 +1,14 @@
 package com.ee461l.iris;
 
 import android.annotation.SuppressLint;
+import android.content.pm.PackageManager;
 import android.location.Address;
 import android.location.Geocoder;
+import android.location.Location;
+import android.support.v4.app.ActivityCompat;
 import android.support.v4.app.Fragment;
 import android.os.Bundle;
+import android.support.v4.content.ContextCompat;
 import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -76,15 +80,12 @@ public class ShowtimesFragment extends Fragment {
 
         //webView.loadUrl("https://www.bing.com/search?q="+currentMovieTitle+"+showtimes");
 
-//        getReverseGeoCoding geocod = new getReverseGeoCoding();
-
         GPSTracker gps = new GPSTracker(this.getActivity());
+        Location myLocation = gps.getLocation();
         double lat = gps.getLatitude();
         double lng = gps.getLongitude();
 
-//        geocod.getAddress(lat,lng);
 
-//        String postalCode = geocod.getPIN();
 
         Geocoder geocoder = new Geocoder(this.getActivity(), Locale.getDefault());
         // lat,lng, your current location
@@ -92,10 +93,8 @@ public class ShowtimesFragment extends Fragment {
         List<Address> addresses = null;
         try {addresses = geocoder.getFromLocation(lat, lng, 1);}
         catch (IOException e) {e.printStackTrace();}
-//        System.out.println("Sarang: is it present??? " + Geocoder.isPresent());
         String postalCode = addresses.get(0).getPostalCode();
-
-
+        
 
         Date d = new Date();
         String year = (d.getYear() + 1900) + "";
