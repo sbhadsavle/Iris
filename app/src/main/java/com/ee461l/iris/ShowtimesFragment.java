@@ -94,7 +94,7 @@ public class ShowtimesFragment extends Fragment {
         try {addresses = geocoder.getFromLocation(lat, lng, 1);}
         catch (IOException e) {e.printStackTrace();}
         String postalCode = addresses.get(0).getPostalCode();
-        
+
 
         Date d = new Date();
         String year = (d.getYear() + 1900) + "";

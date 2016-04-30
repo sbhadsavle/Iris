@@ -140,10 +140,10 @@
     <!--List of Movie Ratings-->
     <string-array name="movieRatings">
         <item>All Movies</item>
-        <item>20% or higher</item>
-        <item>40% or higher</item>
-        <item>60% or higher</item>
-        <item>80% or higher</item>
+        <item>20% - 100%</item>
+        <item>40% - 100%</item>
+        <item>60% - 100%</item>
+        <item>80% - 100%</item>
     </string-array>
 
     <!-- List strings -->

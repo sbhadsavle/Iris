@@ -28,7 +28,7 @@ import android.widget.Spinner;
  * Created by Jason on 4/22/2016.
  */
 public class FiltersActivity extends AppCompatActivity implements
-        OnClickListener, OnItemSelectedListener {
+        OnClickListener {
     Button button;
     ListView listView;
     ArrayAdapter<String> adapter;
@@ -39,6 +39,7 @@ public class FiltersActivity extends AppCompatActivity implements
     String selectedSpinner;
     ArrayList<String> MPAA;
     String rating;
+    Spinner spinner;
 
     /** Called when the activity is first created. */
     @Override
@@ -49,12 +50,23 @@ public class FiltersActivity extends AppCompatActivity implements
 
         findViewsById();
 
-        Spinner spinner = (Spinner) findViewById(R.id.spinner);
+        spinner = (Spinner) findViewById(R.id.spinner);
         ArrayAdapter<CharSequence> adapt = ArrayAdapter.createFromResource(this,
                 R.array.movieRatings, android.R.layout.simple_spinner_item);
         adapt.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinner.setAdapter(adapt);
-//        spinner.setOnItemClickListener((AdapterView.OnItemClickListener) this);
+        spinner.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener(){
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                rating = (String)parent.getItemAtPosition(position);
+            }
+
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+                rating = "All Movies";
+            }
+
+        });
 
         MPAA = new ArrayList<String>();
 
@@ -112,7 +124,20 @@ public class FiltersActivity extends AppCompatActivity implements
             }
         }
 
+        String t = sharedPref.getString(id+"2", "");
+        spinner.setSelection(getIndex(spinner, t));
+
         button.setOnClickListener(this);
+    }
+
+    private int getIndex(Spinner spinner, String myString){
+        int index = 0;
+        for(int i = 0; i < spinner.getCount(); i++){
+            if(spinner.getItemAtPosition(i).equals(myString)){
+                index = i;
+            }
+        }
+        return index;
     }
 
     private void findViewsById() {
@@ -164,6 +189,9 @@ public class FiltersActivity extends AppCompatActivity implements
                 cb.setChecked(true);
             }
         }
+
+        String t = sharedPref.getString(id+"2", "");
+        spinner.setSelection(getIndex(spinner, t));
     }
 
 
@@ -232,14 +260,5 @@ public class FiltersActivity extends AppCompatActivity implements
         startActivity(intent);
     }
 
-    @Override
-    public void onNothingSelected(AdapterView<?> parent) {
-        rating = "All Movies";
-    }
 
-
-    @Override
-    public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-        rating = (String)parent.getItemAtPosition(position);
-    }
 }
