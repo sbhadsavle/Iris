@@ -9,6 +9,8 @@ package com.ee461l.iris;
 
         import android.text.TextUtils;
 
+        import com.loopj.android.http.JsonHttpResponseHandler;
+
 public class BoxOfficeMovie implements Serializable {
     private static final long serialVersionUID = -8959832007991513854L;
     private String ID;
@@ -20,8 +22,12 @@ public class BoxOfficeMovie implements Serializable {
     private String criticsConsensus;
     private int audienceScore;
 
+    private String mpaaRating;
+
     private int criticsScore;
     private ArrayList<String> castList;
+
+    public ArrayList<String> genres = null;
 
     // Returns a BoxOfficeMovie given the expected JSON
     // Reads `title`, `year`, `synopsis`, `posters.thumbnail`,
@@ -36,7 +42,7 @@ public class BoxOfficeMovie implements Serializable {
             b.synopsis = jsonObject.getString("synopsis");
             b.posterUrl = jsonObject.getJSONObject("posters").getString("original");
             b.largePosterUrl = jsonObject.getJSONObject("posters").getString("original");
-            b.criticsConsensus = jsonObject.getString("critics_consensus");
+//            b.criticsConsensus = jsonObject.getString("critics_consensus");
             b.criticsScore = jsonObject.getJSONObject("ratings").getInt("critics_score");
             b.audienceScore = jsonObject.getJSONObject("ratings").getInt("audience_score");
             // Construct simple array of cast names
@@ -45,6 +51,8 @@ public class BoxOfficeMovie implements Serializable {
             for (int i = 0; i < abridgedCast.length(); i++) {
                 b.castList.add(abridgedCast.getJSONObject(i).getString("name"));
             }
+            b.mpaaRating = jsonObject.getString("mpaa_rating");
+            //fetchMovieGenres(b);
         } catch (JSONException e) {
             e.printStackTrace();
             return null;
@@ -110,8 +118,10 @@ public class BoxOfficeMovie implements Serializable {
         return criticsConsensus;
     }
 
-    public int getAudienceScore() {
-        return audienceScore;
-    }
+    public int getAudienceScore() { return audienceScore; }
+
+    public String getMpaaRating() { return mpaaRating; }
+
+    public String getGenres() { return TextUtils.join(", ", genres); }
 
 }

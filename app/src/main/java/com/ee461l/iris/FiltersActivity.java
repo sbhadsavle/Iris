@@ -130,7 +130,6 @@ public class FiltersActivity extends AppCompatActivity implements
         }
 
         Intent intent = new Intent(getApplicationContext(),BoxOfficeActivity.class);
-        Intent nextFilter = new Intent(getApplicationContext(),FiltersActorActivity.class);
 
         // Create a bundle object
         Bundle b = new Bundle();

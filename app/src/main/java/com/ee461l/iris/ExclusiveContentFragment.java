@@ -71,7 +71,7 @@ public class ExclusiveContentFragment extends Fragment {
 //            getActionBar().setTitle(movie.getTitle());
 //        }
         // Populate data
-        tvTitle.setText(movie.getTitle());
+        tvTitle.setText(movie.getTitle()/* + "" + movie.getGenres()*/); // commented code tests if genres are there
         tvCriticsScore.setText(Html.fromHtml("<b>Critics Score:</b> " + movie.getCriticsScore() + "%"));
         tvAudienceScore.setText(Html.fromHtml("<b>Audience Score:</b> " + movie.getAudienceScore() + "%"));
         tvCast.setText(movie.getCastList());

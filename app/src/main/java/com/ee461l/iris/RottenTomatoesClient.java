@@ -21,6 +21,13 @@ public class RottenTomatoesClient {
         client.get(url, params, handler);
     }
 
+    public void getMovieDetailed(JsonHttpResponseHandler handler, long movieID) {
+        //String url = getApiUrl("lists/movies/box_office.json");
+        String url = getApiUrl("movies/" + movieID + ".json");
+        RequestParams params = new RequestParams("apikey", API_KEY);
+        client.get(url, params, handler);
+    }
+
     private String getApiUrl(String relativeUrl) {
 
         return API_BASE_URL + relativeUrl;
