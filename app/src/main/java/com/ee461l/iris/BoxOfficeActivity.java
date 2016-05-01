@@ -92,12 +92,12 @@ public class BoxOfficeActivity extends AppCompatActivity {
                     for (BoxOfficeMovie mov : movies) {
                         System.out.println("@moviessize " + movies.size());
                         fetchMovieGenres(mov);
-                        for (long i = 0; i < 250000000; i++) {
+                        for (long i = 0; i < 2500000; i++) {
                         } // delay so that we can succeed
                     }
 
-                    movies = filterMovies(movies);
-                    adapterMovies.addAll(movies);
+                        movies = filterMovies(movies);
+                        adapterMovies.addAll(movies);
 
 
                 } catch (JSONException e) {
@@ -114,11 +114,11 @@ public class BoxOfficeActivity extends AppCompatActivity {
 
     private ArrayList<BoxOfficeMovie> filterMovies(ArrayList<BoxOfficeMovie> movies){
         getPreferences();
-        //ArrayList<BoxOfficeMovie> filtered = new ArrayList<BoxOfficeMovie>();
+        ArrayList<BoxOfficeMovie> filtered = new ArrayList<BoxOfficeMovie>();
         ArrayList<BoxOfficeMovie> filtered2 = new ArrayList<BoxOfficeMovie>();
         ArrayList<BoxOfficeMovie> filtered3 = new ArrayList<BoxOfficeMovie>();
 
-        /*if(genres.length != 0 && movies.size() != 0){
+        if(genres[0] != null && movies.size() != 0){
             for(BoxOfficeMovie b : movies){
                 for(int j = 0; j < genres.length; j += 1){
                     if(genres[j] == null){
@@ -126,19 +126,25 @@ public class BoxOfficeActivity extends AppCompatActivity {
                     }
                     String movieGenre = b.getGenres();
                     String[] g = movieGenre.split(", ");
+                    boolean genre = false;
                     for(int i = 0; i < g.length; i += 1){
                         if(g[i].equals(genres[j])){
-                            filtered.add(b);
+                            genre = true;
                             break;
                         }
+                    }
+
+                    if(genre){
+                        filtered.add(b);
+                        break;
                     }
                 }
             }
          }else{
             filtered = movies;
-         }*/
+         }
 
-        if(mpaaRatings.length != 0 && movies.size() != 0){
+        if(mpaaRatings[0] != null && movies.size() != 0){
            for(BoxOfficeMovie b : movies){
                  boolean rating = false;
                 for(int i = 0; i < mpaaRatings.length; i += 1){
@@ -156,7 +162,7 @@ public class BoxOfficeActivity extends AppCompatActivity {
                 }
            }
         }else{
-            filtered2 = movies;//filtered;
+            filtered2 = filtered;
         }
 
         if(rating != 0 && movies.size() != 0) {
@@ -202,6 +208,10 @@ public class BoxOfficeActivity extends AppCompatActivity {
         for(int i = 0; i < mpaaRatings.length; i += 1){
             if(mpaaRatings[i].equals("PG13")){
                 mpaaRatings[i]="PG-13";
+            }
+
+            if(mpaaRatings[i].equals("NC17")){
+                mpaaRatings[i] = "NC-17";
             }
         }
 
