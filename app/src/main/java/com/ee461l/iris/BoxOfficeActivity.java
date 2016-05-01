@@ -204,16 +204,17 @@ public class BoxOfficeActivity extends AppCompatActivity {
         String s = sharedPref.getString(id+"1",  "");
         if(!s.equals("")) {
             mpaaRatings = s.split(";");
-        }
-        for(int i = 0; i < mpaaRatings.length; i += 1){
-            if(mpaaRatings[i].equals("PG13")){
-                mpaaRatings[i]="PG-13";
-            }
+            for(int i = 0; i < mpaaRatings.length; i += 1){
+                if(mpaaRatings[i].equals("PG13")){
+                    mpaaRatings[i]="PG-13";
+                }
 
-            if(mpaaRatings[i].equals("NC17")){
-                mpaaRatings[i] = "NC-17";
+                if(mpaaRatings[i].equals("NC17")){
+                    mpaaRatings[i] = "NC-17";
+                }
             }
         }
+
 
         String t = sharedPref.getString(id+"2", "");
         if(!t.equals("")){
@@ -236,7 +237,7 @@ public class BoxOfficeActivity extends AppCompatActivity {
             }
         }
 
-        System.out.println("Saved Genres:");
+        /*System.out.println("Saved Genres:");
         for(int i = 0; i < genres.length; i += 1){
             if(genres[i] == null){
                 break;
@@ -253,7 +254,7 @@ public class BoxOfficeActivity extends AppCompatActivity {
         }
 
         System.out.println("Saved Critics Score");
-        System.out.println(rating);
+        System.out.println(rating);*/
     }
 
     public void setupMovieSelectedListener() {
