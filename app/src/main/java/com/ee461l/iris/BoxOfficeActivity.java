@@ -25,8 +25,6 @@ public class BoxOfficeActivity extends AppCompatActivity {
     private String[] mpaaRatings = new String[5];
     private int rating = 0;
 
-    private ArrayList<BoxOfficeMovie> movies;
-
     private ListView lvMovies;
     private BoxOfficeMoviesAdapter adapterMovies;
     private RottenTomatoesClient client;
@@ -87,7 +85,7 @@ public class BoxOfficeActivity extends AppCompatActivity {
                     // Get the movies json array
                     items = body.getJSONArray("movies");
                     // Parse json array into array of model objects
-                    movies = BoxOfficeMovie.fromJson(items);
+                    ArrayList<BoxOfficeMovie> movies = BoxOfficeMovie.fromJson(items);
                     // Load model objects into the adapter which displays them
                     for (BoxOfficeMovie mov : movies) {
                         System.out.println("@moviessize " + movies.size());
@@ -105,11 +103,6 @@ public class BoxOfficeActivity extends AppCompatActivity {
                 }
             }
         });
-
-       /* while(movies == null){}
-        movies = filterMovies(movies);
-        adapterMovies.clear();
-        adapterMovies.addAll(movies);*/
     }
 
     private ArrayList<BoxOfficeMovie> filterMovies(ArrayList<BoxOfficeMovie> movies){
