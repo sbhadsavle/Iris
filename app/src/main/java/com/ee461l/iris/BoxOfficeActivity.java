@@ -7,7 +7,9 @@ package com.ee461l.iris;
         import org.json.JSONObject;
 
         import android.content.Intent;
+        import android.content.SharedPreferences;
         import android.os.Bundle;
+        import android.preference.PreferenceManager;
         import android.support.v7.app.AppCompatActivity;
         import android.view.View;
         import android.widget.AdapterView;
@@ -19,7 +21,11 @@ package com.ee461l.iris;
 
 public class BoxOfficeActivity extends AppCompatActivity {
 
-    private String[] genres;
+    private String[] genres = new String[17];
+    private String[] mpaaRatings = new String[5];
+    private int rating = 0;
+
+    private ArrayList<BoxOfficeMovie> movies;
 
     private ListView lvMovies;
     private BoxOfficeMoviesAdapter adapterMovies;
@@ -81,23 +87,163 @@ public class BoxOfficeActivity extends AppCompatActivity {
                     // Get the movies json array
                     items = body.getJSONArray("movies");
                     // Parse json array into array of model objects
-                    ArrayList<BoxOfficeMovie> movies = BoxOfficeMovie.fromJson(items);
+                    movies = BoxOfficeMovie.fromJson(items);
                     // Load model objects into the adapter which displays them
                     for (BoxOfficeMovie mov : movies) {
                         System.out.println("@moviessize " + movies.size());
                         fetchMovieGenres(mov);
-                        for (long i = 0; i < 25000000; i++){} // delay so that we can succeed
+                        for (long i = 0; i < 250000000; i++) {
+                        } // delay so that we can succeed
                     }
+
+                    movies = filterMovies(movies);
                     adapterMovies.addAll(movies);
+
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
             }
         });
+
+       /* while(movies == null){}
+        movies = filterMovies(movies);
+        adapterMovies.clear();
+        adapterMovies.addAll(movies);*/
     }
 
-    private void filterGenres(){
+    private ArrayList<BoxOfficeMovie> filterMovies(ArrayList<BoxOfficeMovie> movies){
+        getPreferences();
+        //ArrayList<BoxOfficeMovie> filtered = new ArrayList<BoxOfficeMovie>();
+        ArrayList<BoxOfficeMovie> filtered2 = new ArrayList<BoxOfficeMovie>();
+        ArrayList<BoxOfficeMovie> filtered3 = new ArrayList<BoxOfficeMovie>();
 
+        /*if(genres.length != 0 && movies.size() != 0){
+            for(BoxOfficeMovie b : movies){
+                for(int j = 0; j < genres.length; j += 1){
+                    if(genres[j] == null){
+                        break;
+                    }
+                    String movieGenre = b.getGenres();
+                    String[] g = movieGenre.split(", ");
+                    for(int i = 0; i < g.length; i += 1){
+                        if(g[i].equals(genres[j])){
+                            filtered.add(b);
+                            break;
+                        }
+                    }
+                }
+            }
+         }else{
+            filtered = movies;
+         }*/
+
+        if(mpaaRatings.length != 0 && movies.size() != 0){
+           for(BoxOfficeMovie b : movies){
+                 boolean rating = false;
+                for(int i = 0; i < mpaaRatings.length; i += 1){
+                    if(mpaaRatings[i] == null){
+                        break;
+                    }
+                    if(b.getMpaaRating().equals(mpaaRatings[i])){
+                        rating = true;
+                        break;
+                    }
+                }
+
+                if(rating){
+                    filtered2.add(b);
+                }
+           }
+        }else{
+            filtered2 = movies;//filtered;
+        }
+
+        if(rating != 0 && movies.size() != 0) {
+            for (BoxOfficeMovie b : filtered2) {
+                if (b.getCriticsScore() >= rating) {
+                    filtered3.add(b);
+                }
+            }
+        }else{
+            filtered3 = filtered2;
+        }
+
+        return filtered3;
+    }
+
+    private void getPreferences(){
+        SharedPreferences sharedPref = PreferenceManager.getDefaultSharedPreferences(this);
+
+        String id = LoginActivity.id;
+
+        String selected = sharedPref.getString(id, "");
+        String[] allGenres = getResources().getStringArray(R.array.genres);
+        if(!selected.equals("")) {
+            ArrayList<Integer> pos = new ArrayList<>();
+
+            String[] positions = selected.split(";");
+
+            for (int i = 0; i < positions.length; i += 1) {
+                pos.add(Integer.valueOf(positions[i]));
+            }
+
+            int x = 0;
+            for(Integer i: pos){
+                genres[x]=allGenres[i];
+                x += 1;
+            }
+        }
+
+        String s = sharedPref.getString(id+"1",  "");
+        if(!s.equals("")) {
+            mpaaRatings = s.split(";");
+        }
+        for(int i = 0; i < mpaaRatings.length; i += 1){
+            if(mpaaRatings[i].equals("PG13")){
+                mpaaRatings[i]="PG-13";
+            }
+        }
+
+        String t = sharedPref.getString(id+"2", "");
+        if(!t.equals("")){
+            switch (t){
+                case "20% - 100%":
+                    rating = 20;
+                    break;
+                case "40% - 100%":
+                    rating = 40;
+                    break;
+                case "60% - 100%":
+                    rating = 60;
+                    break;
+                case "80% - 100%":
+                    rating = 80;
+                    break;
+                default:
+                    rating = 0;
+                    break;
+            }
+        }
+
+        System.out.println("Saved Genres:");
+        for(int i = 0; i < genres.length; i += 1){
+            if(genres[i] == null){
+                break;
+            }
+            System.out.println(genres[i]);
+        }
+
+        System.out.println("Saved MPAA Ratings:");
+        for(int i = 0; i < mpaaRatings.length; i += 1){
+            if(mpaaRatings[i] == null){
+                break;
+            }
+            System.out.println(mpaaRatings[i]);
+        }
+
+        System.out.println("Saved Critics Score");
+        System.out.println(rating);
     }
 
     public void setupMovieSelectedListener() {
