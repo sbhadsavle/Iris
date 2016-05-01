@@ -76,7 +76,8 @@ public class ExclusiveContentFragment extends Fragment {
         tvAudienceScore.setText(Html.fromHtml("<b>Audience Score:</b> " + movie.getAudienceScore() + "%"));
         tvCast.setText(movie.getCastList());
         tvSynopsis.setText(Html.fromHtml("<b>Synopsis:</b> " + movie.getSynopsis()));
-        tvCriticsConsensus.setText(Html.fromHtml("<b>Consensus:</b> " + movie.getCriticsConsensus()));
+        //tvCriticsConsensus.setText(Html.fromHtml("<b>Consensus:</b> " + movie.getCriticsConsensus()));
+        tvCriticsConsensus.setText("");
         // R.drawable.large_movie_poster from
         // http://content8.flixster.com/movie/11/15/86/11158674_pro.jpg -->
         Picasso.with(getActivity()).load(movie.getLargePosterUrl()). // CONTEXT ???
