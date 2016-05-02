@@ -25,6 +25,10 @@ public class BoxOfficeActivity extends AppCompatActivity {
     private String[] mpaaRatings = new String[5];
     private int rating = 0;
 
+    private int getGenres = 0;
+
+    ArrayList<BoxOfficeMovie> movies;
+
     private ListView lvMovies;
     private BoxOfficeMoviesAdapter adapterMovies;
     private RottenTomatoesClient client;
@@ -39,11 +43,6 @@ public class BoxOfficeActivity extends AppCompatActivity {
         adapterMovies = new BoxOfficeMoviesAdapter(this, aMovies);
         lvMovies.setAdapter(adapterMovies);
         // Fetch the data remotely
-        Bundle extras = getIntent().getExtras();
-        if(extras!=null){
-            genres = (String[])extras.get("selectedItems");
-
-        }
         fetchBoxOfficeMovies();
         setupMovieSelectedListener();
     }
@@ -66,6 +65,13 @@ public class BoxOfficeActivity extends AppCompatActivity {
                     //adapterMovies.add(b);
                     int ind = adapterMovies.getPosition(b);
                     adapterMovies.getItem(ind).genres = genres;
+                    System.out.println("");
+                    getGenres += 1;
+                    if (getGenres == movies.size()) {
+                        adapterMovies.clear();
+                        movies = filterMovies();
+                        adapterMovies.addAll(movies);
+                    }
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -85,18 +91,16 @@ public class BoxOfficeActivity extends AppCompatActivity {
                     // Get the movies json array
                     items = body.getJSONArray("movies");
                     // Parse json array into array of model objects
-                    ArrayList<BoxOfficeMovie> movies = BoxOfficeMovie.fromJson(items);
+                    movies = BoxOfficeMovie.fromJson(items);
                     // Load model objects into the adapter which displays them
                     for (BoxOfficeMovie mov : movies) {
                         System.out.println("@moviessize " + movies.size());
                         fetchMovieGenres(mov);
-                        for (long i = 0; i < 2500000; i++) {
+                        for (long i = 0; i < 250000000; i++) {
                         } // delay so that we can succeed
                     }
 
-                        movies = filterMovies(movies);
-                        adapterMovies.addAll(movies);
-
+                    adapterMovies.addAll(movies);
 
                 } catch (JSONException e) {
                     e.printStackTrace();
@@ -105,7 +109,7 @@ public class BoxOfficeActivity extends AppCompatActivity {
         });
     }
 
-    private ArrayList<BoxOfficeMovie> filterMovies(ArrayList<BoxOfficeMovie> movies){
+    private ArrayList<BoxOfficeMovie> filterMovies(){
         getPreferences();
         ArrayList<BoxOfficeMovie> filtered = new ArrayList<BoxOfficeMovie>();
         ArrayList<BoxOfficeMovie> filtered2 = new ArrayList<BoxOfficeMovie>();
@@ -189,6 +193,33 @@ public class BoxOfficeActivity extends AppCompatActivity {
 
             int x = 0;
             for(Integer i: pos){
+                switch(allGenres[i]){
+                    case "Action and Adventure":
+                        allGenres[i] = "Action & Adventure";
+                        break;
+                    case "Art House and International Movies":
+                        allGenres[i] = "Art House & International Movies";
+                        break;
+                    case "Kids and Family":
+                        allGenres[i] = "Kids & Family";
+                        break;
+                    case "Musical and Performing Arts":
+                        allGenres[i] = "Musical & Performing Arts";
+                        break;
+                    case "Mystery and Suspense":
+                        allGenres[i] = "Mystery & Suspense";
+                        break;
+                    case "Science Fiction and Fantasy":
+                        allGenres[i] = "Science Fiction & Fantasy";
+                        break;
+                    case "Sports and Fitness":
+                        allGenres[i] = "Sports & Fitness";
+                        break;
+                    default:
+                        allGenres[i] = allGenres[i];
+                        break;
+                }
+
                 genres[x]=allGenres[i];
                 x += 1;
             }
