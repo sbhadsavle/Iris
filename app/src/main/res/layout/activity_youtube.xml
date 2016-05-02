@@ -24,31 +24,61 @@
             android:orientation="vertical">
 
             <TextView
-                android:id="@+id/video_title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:gravity="center"
-                android:textColor="@android:color/black"
-                android:textSize="20sp" />
-
-            <!-- subtitle? -->
-            <TextView
-                android:value=" "
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
-                android:gravity="center"
-                android:textColor="@android:color/black"
-                android:textSize="24sp" />
-
+            android:id="@+id/video_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:textColor="@android:color/black"
+            android:textSize="20sp"
+            android:paddingTop="60dp"
+                />
 
             <ImageView
                 android:id="@+id/video_thumbnail"
-                android:layout_width="375dp"
-                android:layout_height="250dp"
+                android:layout_width="300dp"
+                android:layout_height="169dp"
                 android:layout_alignParentTop="true"
                 android:layout_centerHorizontal="true"
 
+                />
+
+            <TextView
+                android:id="@+id/description1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                android:textSize="12sp"
+                android:paddingTop="5dp"
+                />
+
+            <TextView
+                android:id="@+id/video_title2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                android:textSize="20sp"
+                android:paddingTop="40dp"
+                />
+
+            <ImageView
+                android:id="@+id/video_thumbnail2"
+                android:layout_width="300dp"
+                android:layout_height="169dp"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+
+                />
+
+            <TextView
+                android:id="@+id/description2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:textColor="@android:color/black"
+                android:textSize="12sp"
+                android:paddingTop="5dp"
                 />
 
         </LinearLayout>

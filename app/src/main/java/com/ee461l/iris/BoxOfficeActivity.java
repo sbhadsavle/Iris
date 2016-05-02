@@ -96,7 +96,7 @@ public class BoxOfficeActivity extends AppCompatActivity {
                     for (BoxOfficeMovie mov : movies) {
                         System.out.println("@moviessize " + movies.size());
                         fetchMovieGenres(mov);
-                        for (long i = 0; i < 25000000; i++) {} // delay so that we can succeed
+                        for (long i = 0; i < 100000000; i++) {} // delay so that we can succeed
                     }
 
                     adapterMovies.addAll(movies);

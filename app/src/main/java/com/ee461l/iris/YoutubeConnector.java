@@ -45,28 +45,33 @@ public class YoutubeConnector {
         }
     }
 
-    public Video search(String keywords) {
+    public List<Video> search(String keywords) {
         query.setQ(keywords);
         try {
             SearchListResponse response = query.execute();
             List<SearchResult> results = response.getItems();
 
             List<Video> items = new ArrayList<Video>();
-           /* for(SearchResult result:results){
+            for(SearchResult result:results){
                 Video item = new Video();
                 item.setTitle(result.getSnippet().getTitle());
                 item.setDescription(result.getSnippet().getDescription());
                 item.setThumbnailURL(result.getSnippet().getThumbnails().getDefault().getUrl());
                 item.setId(result.getId().getVideoId());
                 items.add(item);
-            }*/
-            Video item = new Video();
+                if(items.size() == 2){
+                    break;
+                }
+            }
+            return items;
+
+            /*Video item = new Video();
             SearchResult result = results.get(0);
             item.setTitle(result.getSnippet().getTitle());
             item.setDescription(result.getSnippet().getDescription());
             item.setThumbnailURL(result.getSnippet().getThumbnails().getDefault().getUrl());
             item.setId(result.getId().getVideoId());
-            return item;
+            return item;*/
         } catch (IOException e) {
             Log.d("YC", "Could not search: " + e);
             return null;
