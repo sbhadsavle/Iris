@@ -10,7 +10,7 @@ import android.support.v4.app.FragmentPagerAdapter;
  */
 public class MovieFragmentPagerAdapter extends FragmentPagerAdapter {
     final int PAGE_COUNT = 3;
-    private String tabTitles[] = new String[] { "Exclusive Content", "Trailers", "Showtimes" };
+    private String tabTitles[] = new String[] { "Overview", "Trailers", "Showtimes" };
     private Context context;
 
     public MovieFragmentPagerAdapter(FragmentManager fm, Context context) {

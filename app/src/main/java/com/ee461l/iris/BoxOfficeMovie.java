@@ -22,6 +22,7 @@ public class BoxOfficeMovie implements Serializable {
     private String criticsConsensus;
     private int audienceScore;
 
+    private int runtime;
     private String mpaaRating;
 
     private int criticsScore;
@@ -52,6 +53,7 @@ public class BoxOfficeMovie implements Serializable {
                 b.castList.add(abridgedCast.getJSONObject(i).getString("name"));
             }
             b.mpaaRating = jsonObject.getString("mpaa_rating");
+            b.runtime = jsonObject.getInt("runtime");
             //fetchMovieGenres(b);
         } catch (JSONException e) {
             e.printStackTrace();
@@ -124,4 +126,7 @@ public class BoxOfficeMovie implements Serializable {
 
     public String getGenres() { return TextUtils.join(", ", genres); }
 
+    public int getRuntime() {
+        return runtime;
+    }
 }

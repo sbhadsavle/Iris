@@ -33,10 +33,9 @@
         android:id="@+id/tvCast"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_alignBottom="@+id/ivPosterImage"
         android:layout_alignLeft="@+id/tvAudienceScore"
         android:layout_below="@+id/tvAudienceScore"
-        android:gravity="bottom"
+        android:paddingTop="5dp"
         android:text="Christian Bale, Joseph-Gordon Levitt"
         android:textSize="12sp" />
 
@@ -71,7 +70,8 @@
                 android:id="@+id/tvSynopsis"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="10dp"
+                android:layout_marginTop="5dp"
+                android:textSize="16dp"
                 android:text="This is a story about a protagonist defeating an antagonist" />
         </LinearLayout>
     </ScrollView>
@@ -82,8 +82,8 @@
         android:layout_height="wrap_content"
         android:layout_alignLeft="@+id/tvCriticsScore"
         android:layout_below="@+id/tvCriticsScore"
-        android:layout_marginTop="5dp"
+        android:layout_marginTop="0dp"
         android:text="Audience Score: 93%"
-        android:textSize="14sp" />
+        android:textSize="18sp" />
 
 </RelativeLayout>

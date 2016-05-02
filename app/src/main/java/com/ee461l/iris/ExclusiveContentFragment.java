@@ -73,9 +73,9 @@ public class ExclusiveContentFragment extends Fragment {
         // Populate data
         tvTitle.setText(movie.getTitle()/* + "" + movie.getGenres()*/); // commented code tests if genres are there
         tvCriticsScore.setText(Html.fromHtml("<b>Critics Score:</b> " + movie.getCriticsScore() + "%"));
-        tvAudienceScore.setText(Html.fromHtml("<b>Audience Score:</b> " + movie.getAudienceScore() + "%"));
+        tvAudienceScore.setText(Html.fromHtml("<b>Audience Score:</b> " + movie.getAudienceScore() + "%" + "<br/>" + "<i>" + movie.getRuntime() + " minutes </i>"));
         tvCast.setText(movie.getCastList());
-        tvSynopsis.setText(Html.fromHtml("<b>Synopsis:</b> " + movie.getSynopsis()));
+        tvSynopsis.setText(Html.fromHtml("<b>Synopsis:</b> " + "<br/>" + movie.getSynopsis()));
         //tvCriticsConsensus.setText(Html.fromHtml("<b>Consensus:</b> " + movie.getCriticsConsensus()));
         tvCriticsConsensus.setText("");
         // R.drawable.large_movie_poster from
